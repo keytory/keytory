@@ -4,3 +4,4 @@
 /.next
 
 /build.sh
+*.min.*
