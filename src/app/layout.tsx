@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 import ClientProvider from './ClientProvider';
 import '@styles/reset.min.css';
+import '@styles/global.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
