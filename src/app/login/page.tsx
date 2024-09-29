@@ -1,5 +1,14 @@
+import { wrap } from '@styles/containers/login-page/index.css';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { FC } from 'react';
+import RectangleButton from '../../components/button/RectangleButton';
+import Link from 'next/link';
+import {
+  emailButton,
+  googleButton,
+  kakaoButton,
+} from '@styles/components/button/Button.css';
 
 const EmailFormSection = dynamic(
   () => import('../../containers/login-page/EmailFormSection'),
@@ -8,29 +17,31 @@ const EmailFormSection = dynamic(
   }
 );
 
-const LoginPage = () => {
+const LoginPage: FC = () => {
   return (
     <>
-      <main
-        style={{
-          width: 'calc(100% - 40px)',
-          minHeight: 'calc(100vh - 100px)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '50px 20px',
-          flexDirection: 'column',
-          gap: '50px'
-        }}
-      >
+      <main className={wrap}>
         <Image
-        src="https://placehold.co/197x103"
-        alt="Logo"
-        width="197"
-        height="103"
-      />
+          src="https://placehold.co/197x103"
+          alt="Logo"
+          width="197"
+          height="103"
+        />
         <EmailFormSection />
         <hr style={{ width: '100%' }} />
+        <RectangleButton className={kakaoButton} text="카카오로 가입하기" />
+        <RectangleButton
+          className={googleButton}
+          image={{
+            src: '/icon/google.svg',
+            alt: 'Google',
+            width: 30,
+            height: 30,
+          }}
+          text="Google로 가입하기"
+        />
+        <RectangleButton className={emailButton} text="이메일로 회원가입" />
+        <Link href="#">비밀번호를 잊어버리셨나요?</Link>
       </main>
     </>
   );
