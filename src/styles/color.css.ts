@@ -1,4 +1,4 @@
-export const colors = {
+export const color = {
   primary: {
     10: 'rgba(255, 241, 236, 1)',
     20: 'rgba(255, 226, 217, 1)',

@@ -3,6 +3,9 @@ import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import ClientProvider from './ClientProvider';
 import '@styles/reset.min.css';
+import Banner from '../components/layout/Banner';
+import Sidebar from '../components/layout/SideBar';
+import { wrapper } from '@styles/containers/layout/index.css';
 
 const pretendard = localFont({
   src: '../../public/fonts/PretendardVariable.woff2',
@@ -44,7 +47,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={pretendard.className}>
-        <ClientProvider>{children}</ClientProvider>
+        <ClientProvider>
+          <Banner />
+          <div className={wrapper}>
+            <Sidebar />
+            {children}
+          </div>
+        </ClientProvider>
       </body>
     </html>
   );
