@@ -1,3 +1,4 @@
+import { color } from '@styles/color.css';
 import { style } from '@vanilla-extract/css';
 
 export const rectangleButton = style({
@@ -18,7 +19,7 @@ export const rectangleButton = style({
 export const loginButton = style([
   rectangleButton,
   {
-    backgroundColor: '#FF6E40',
+    backgroundColor: color.primary[100],
     color: '#FFFFFF',
   },
 ]);
@@ -41,7 +42,7 @@ export const googleButton = style([
 export const emailButton = style([
   rectangleButton,
   {
-    backgroundColor: '#EFEFEF',
+    backgroundColor: color.basic[20],
     color: '#767676',
   },
 ]);

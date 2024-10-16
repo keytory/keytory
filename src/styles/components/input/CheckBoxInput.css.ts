@@ -1,3 +1,4 @@
+import { color } from '@styles/color.css';
 import { style, styleVariants } from '@vanilla-extract/css';
 
 export const checkBoxStyles = style({
@@ -32,7 +33,7 @@ export const customCheckmarkVariants = styleVariants({
   },
   checked: {
     ...baseCheckmarkStyles,
-    backgroundColor: '#ff6b6b',
+    backgroundColor: color.primary[100],
     color: 'white',
     fontSize: '10px',
     border: 'none',
