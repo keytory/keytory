@@ -5,15 +5,19 @@ import {
   carouselWrapper,
   carousel,
   wrapper,
-  carouselImageContainer,
   listContainer,
   listItem,
   selectedListItem,
   carouselIndexContainer,
-  carouselButton,
+  carouselImage,
 } from '@styles/containers/main-page/CarouselSection.css';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { Swiper, SwiperClass, SwiperSlide, useSwiper } from 'swiper/react';
+import { Autoplay, Pagination, Virtual } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 // TODO: 이미지 url fetch하는 것으로 변경
 const imageList: string[] = [
@@ -25,27 +29,21 @@ const imageList: string[] = [
 ];
 
 export default function CarouselSection() {
-  const [carouselIndex, setCarouselIndex] = useState<number>(0);
+  const [swiperRef, setSwiperRef] = useState<SwiperClass | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(1);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCarouselIndex((current) => (current + 1) % imageList.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleLeftButtonClick = () => {
-    setCarouselIndex((current) => (current === 0 ? 4 : current - 1));
+  const onSwiper = (swiper: SwiperClass) => {
+    setSwiperRef(swiper);
   };
 
-  const handleRightButtonClick = () => {
-    setCarouselIndex((current) => (current + 1) % imageList.length);
+  const onSlideChange = () => {
+    let index = swiperRef?.activeIndex;
+    if (!index || index === 6) index = 1;
+    setActiveIndex(index);
   };
 
   const handleImageClick = (index: number) => {
-    if (index < 0 || index > imageList.length - 1) return;
-    setCarouselIndex(index);
+    swiperRef?.slideTo(index + 1);
   };
 
   return (
@@ -53,40 +51,34 @@ export default function CarouselSection() {
       <div className={carouselText}>마치 실물처럼.</div>
       <div className={carouselWrapper}>
         <div className={carousel}>
-          <div
-            className={carouselImageContainer}
-            style={{ transform: `translateX(${-756 * carouselIndex}px)` }}
+          <Swiper
+            onSwiper={onSwiper}
+            onSlideChange={onSlideChange}
+            slidesPerView={1}
+            loop
+            modules={[Pagination, Autoplay, Virtual]}
+            pagination={{
+              type: 'fraction',
+              renderFraction: (currentClass, totalClass) =>
+                `<div class="${carouselIndexContainer}">
+                  <span class="${currentClass}"></span>/<span class="${totalClass}"></span>
+                </div>`,
+            }}
+            autoplay={{ disableOnInteraction: false, waitForTransition: false }}
+            virtual
           >
-            {imageList.map((image) => (
-              <Image
-                key={image}
-                src={image}
-                width={756}
-                height={528}
-                alt="image"
-              />
+            {imageList.map((image, index) => (
+              <SwiperSlide key={index} virtualIndex={index}>
+                <Image
+                  src={image}
+                  alt="image"
+                  width={756}
+                  height={528}
+                  className={carouselImage}
+                />
+              </SwiperSlide>
             ))}
-          </div>
-          <div className={carouselIndexContainer}>
-            <button onClick={handleLeftButtonClick} className={carouselButton}>
-              <Image
-                src="/icons/carousel-button.svg"
-                width={26}
-                height={26}
-                alt="carousel button"
-                style={{ transform: 'rotate(180deg)' }}
-              />
-            </button>
-            {carouselIndex + 1}/5
-            <button onClick={handleRightButtonClick} className={carouselButton}>
-              <Image
-                src="/icons/carousel-button.svg"
-                width={26}
-                height={26}
-                alt="carousel button"
-              />
-            </button>
-          </div>
+          </Swiper>
         </div>
         <div className={listContainer}>
           {imageList.map((image, index) => (
@@ -96,7 +88,9 @@ export default function CarouselSection() {
               onClick={() => handleImageClick(index)}
               width={155}
               height={98}
-              className={carouselIndex === index ? selectedListItem : listItem}
+              className={
+                activeIndex === index + 1 ? selectedListItem : listItem
+              }
               alt="sub image"
             />
           ))}

@@ -9,6 +9,12 @@ export const sidebar = style({
   display: 'flex',
   flexDirection: 'column',
   padding: '0 30px',
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      display: 'none',
+    },
+  },
 });
 
 export const sidebarLogo = style({

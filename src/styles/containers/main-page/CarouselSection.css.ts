@@ -5,6 +5,13 @@ export const wrapper = style({
   paddingTop: 50,
   width: 927,
   margin: 'auto',
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      width: '100vw',
+      paddingTop: 0,
+    },
+  },
 });
 
 export const carouselText = style({
@@ -20,6 +27,12 @@ export const carouselText = style({
   fontWeight: 600,
   marginLeft: 772,
   marginBottom: 16,
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      display: 'none',
+    },
+  },
 });
 
 export const carouselWrapper = style({
@@ -27,57 +40,68 @@ export const carouselWrapper = style({
   display: 'flex',
   flexDirection: 'row',
   gap: 16,
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      width: '100%',
+    },
+  },
 });
 
 export const carousel = style({
   width: 756,
   height: 528,
-  borderRadius: 8,
   display: 'flex',
-  overflow: 'hidden',
   position: 'relative',
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      width: '100%',
+      height: 284,
+    },
+  },
 });
 
-export const carouselImageContainer = style({
-  width: 756 * 6,
-  height: 528,
-  position: 'absolute',
-  transition: 'transform 1s ease-in-out',
+export const carouselImage = style({
+  borderRadius: 8,
 });
 
 export const carouselIndexContainer = style({
   position: 'absolute',
-  bottom: 20,
+  zIndex: 100,
+  bottom: 16,
   right: 24,
   display: 'flex',
   alignItems: 'center',
-  gap: 12,
+  borderRadius: 20,
+  padding: '6px 14px',
+  gap: 4,
   fontSize: 14,
-  color: color.basic[50],
-});
-
-export const carouselButton = style({
-  border: 'none',
-  background: 'transparent',
-  padding: 0,
-  marginTop: 3,
+  color: color.basic[10],
+  background: `rgba(0, 0, 0, 0.5)`,
 });
 
 export const listContainer = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      display: 'none',
+    },
+  },
 });
 
 export const listItem = style({
   borderRadius: 6,
   cursor: 'pointer',
-  border: `solid 2px ${color.basic[10]}`,
+  boxSizing: 'border-box',
 });
 
 export const selectedListItem = style([
   listItem,
   {
-    borderColor: color.primary[100],
+    border: `solid 2px ${color.primary[100]}`,
   },
 ]);

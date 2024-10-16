@@ -9,4 +9,10 @@ export const banner = style({
   fontSize: 15,
   textAlign: 'center',
   lineHeight: 2.5,
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      display: 'none',
+    },
+  },
 });

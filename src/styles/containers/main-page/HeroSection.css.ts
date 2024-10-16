@@ -2,9 +2,17 @@ import { color } from '@styles/color.css';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
-  padding: '60px 80px',
+  boxSizing: 'border-box',
   width: 927,
   margin: 'auto',
+  padding: '80px 60px',
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      width: '100vw',
+      padding: '24px 20px',
+    },
+  },
 });
 
 export const caption = style({
@@ -19,6 +27,12 @@ export const title = style({
   fontSize: 36,
   fontWeight: 600,
   marginBottom: 12,
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      fontSize: 22,
+    },
+  },
 });
 
 export const detail = style({
@@ -39,4 +53,10 @@ export const button = style({
   color: color.basic[10],
   fontSize: 15,
   fontWeight: 500,
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      display: 'none',
+    },
+  },
 });
