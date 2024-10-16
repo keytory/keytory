@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import ClientProvider from './ClientProvider';
 import '@styles/reset.min.css';
 import '@styles/global.css';
+import Banner from '../components/layout/Banner';
+import Sidebar from '../components/layout/SideBar';
+import { wrapper } from '@styles/containers/layout/index.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const pretendard = localFont({
+  src: '../../public/fonts/PretendardVariable.woff2',
+  display: 'swap',
+  weight: '45 920',
+});
 
 export const metadata: Metadata = {
   title: '키토리',
@@ -40,8 +47,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>
-        <ClientProvider>{children}</ClientProvider>
+      <body className={pretendard.className}>
+        <ClientProvider>
+          <Banner />
+          <div className={wrapper}>
+            <Sidebar />
+            {children}
+          </div>
+        </ClientProvider>
       </body>
     </html>
   );
