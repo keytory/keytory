@@ -44,7 +44,11 @@ export const detail = style({
   marginBottom: 20,
 });
 
-export const button = style({
+export const link = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textDecoration: 'none',
   width: 187,
   height: 36,
   background: '#FF6E40',

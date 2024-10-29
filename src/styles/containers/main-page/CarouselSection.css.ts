@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { color } from '../../color.css';
 
 export const wrapper = style({
@@ -62,6 +62,10 @@ export const carousel = style({
   },
 });
 
+globalStyle(`.${wrapper} .swiper`, {
+  borderRadius: 8,
+});
+
 export const carouselImage = style({
   borderRadius: 8,
 });
@@ -94,14 +98,29 @@ export const listContainer = style({
 });
 
 export const listItem = style({
+  width: 155,
+  height: 98,
   borderRadius: 6,
   cursor: 'pointer',
   boxSizing: 'border-box',
+  position: 'relative',
 });
 
 export const selectedListItem = style([
   listItem,
   {
-    border: `solid 2px ${color.primary[100]}`,
+    '::after': {
+      content: '""',
+      display: 'block',
+      borderRadius: 6,
+      border: `solid 2.5px ${color.primary[100]}`,
+      position: 'absolute',
+      inset: 0,
+    },
   },
 ]);
+
+export const listImage = style({
+  borderRadius: 6,
+  objectFit: 'cover',
+});

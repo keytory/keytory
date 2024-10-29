@@ -9,7 +9,7 @@ import {
   listItem,
   selectedListItem,
   carouselIndexContainer,
-  carouselImage,
+  listImage,
 } from '@styles/containers/main-page/CarouselSection.css';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -69,30 +69,27 @@ export default function CarouselSection() {
           >
             {imageList.map((image, index) => (
               <SwiperSlide key={index} virtualIndex={index}>
-                <Image
-                  src={image}
-                  alt="image"
-                  width={756}
-                  height={528}
-                  className={carouselImage}
-                />
+                <Image src={image} alt="image" width={756} height={528} />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
         <div className={listContainer}>
           {imageList.map((image, index) => (
-            <Image
+            <div
               key={index}
-              src={image}
-              onClick={() => handleImageClick(index)}
-              width={155}
-              height={98}
               className={
                 activeIndex === index + 1 ? selectedListItem : listItem
               }
-              alt="sub image"
-            />
+            >
+              <Image
+                src={image}
+                onClick={() => handleImageClick(index)}
+                alt="sub image"
+                fill
+                className={listImage}
+              />
+            </div>
           ))}
         </div>
       </div>

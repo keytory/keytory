@@ -12,8 +12,9 @@ import {
   numberContainer,
   smallTagStyle,
   swiper,
-  swiperButton,
   swiperContainer,
+  swiperNextButton,
+  swiperPrevButton,
   tagGroup,
   title,
   wrapper,
@@ -56,9 +57,9 @@ export default function SliderSection() {
 
   return (
     <div className={wrapper}>
-      <h2 className={title}>BEST KEYBOARD</h2>
+      <h2 className={title}>Best Keyboard</h2>
       <div className={swiperContainer}>
-        <button className={swiperButton} onClick={handlePrevClick}></button>
+        <button className={swiperPrevButton} onClick={handlePrevClick}></button>
         <div className={swiper}>
           <Swiper
             onSwiper={onSwiper}
@@ -88,7 +89,7 @@ export default function SliderSection() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <button className={swiperButton} onClick={handleNextClick}></button>
+        <button className={swiperNextButton} onClick={handleNextClick}></button>
       </div>
     </div>
   );

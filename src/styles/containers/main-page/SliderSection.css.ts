@@ -29,6 +29,7 @@ export const title = style({
       fontSize: 22,
       textAlign: 'left',
       margin: '0 20px 20px 20px',
+      textTransform: 'uppercase',
     },
   },
 });
@@ -37,8 +38,8 @@ export const swiperContainer = style({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
+  justifyContent: 'center',
   gap: 10,
-  padding: '0 17px',
 
   '@media': {
     'screen and (max-width: 600px)': {
@@ -91,6 +92,24 @@ export const swiperButton = style({
     },
   },
 });
+
+export const swiperPrevButton = style([
+  swiperButton,
+  {
+    backgroundImage: 'url(/icons/main-slider-prev.svg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  },
+]);
+
+export const swiperNextButton = style([
+  swiperButton,
+  {
+    backgroundImage: 'url(/icons/main-slider-next.svg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  },
+]);
 
 export const card = style({
   boxSizing: 'border-box',
