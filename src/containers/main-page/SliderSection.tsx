@@ -65,10 +65,14 @@ export default function SliderSection() {
             onSwiper={onSwiper}
             slidesPerView={'auto'}
             spaceBetween={16}
+            slidesOffsetBefore={16}
+            slidesOffsetAfter={16}
             breakpoints={{
               600: {
                 slidesPerView: 3,
                 spaceBetween: 10,
+                slidesOffsetBefore: 0,
+                slidesOffsetAfter: 0,
               },
             }}
           >

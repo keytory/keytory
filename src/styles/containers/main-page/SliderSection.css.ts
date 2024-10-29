@@ -44,6 +44,7 @@ export const swiperContainer = style({
   '@media': {
     'screen and (max-width: 600px)': {
       padding: 0,
+      gap: 0,
     },
   },
 });
@@ -55,17 +56,18 @@ export const swiper = style({
   '@media': {
     'screen and (max-width: 600px)': {
       width: '100vw',
+      height: 330,
     },
   },
 });
 
-globalStyle(`.${wrapper} .swiper-wrapper`, {
-  '@media': {
-    'screen and (max-width: 600px)': {
-      padding: '0 16px',
-    },
-  },
-});
+// globalStyle(`.${wrapper} .swiper-wrapper`, {
+//   '@media': {
+//     'screen and (max-width: 600px)': {
+//       padding: '0 16px',
+//     },
+//   },
+// });
 
 globalStyle(`.${wrapper} .swiper-slide`, {
   '@media': {
