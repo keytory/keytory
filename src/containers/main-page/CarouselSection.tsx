@@ -10,6 +10,7 @@ import {
   selectedListItem,
   carouselIndexContainer,
   listImage,
+  carouselImage,
 } from '@styles/containers/main-page/CarouselSection.css';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -56,7 +57,7 @@ export default function CarouselSection() {
             onSlideChange={onSlideChange}
             slidesPerView={1}
             loop
-            modules={[Pagination, Autoplay, Virtual]}
+            modules={[Pagination, Autoplay]}
             pagination={{
               type: 'fraction',
               renderFraction: (currentClass, totalClass) =>
@@ -65,11 +66,16 @@ export default function CarouselSection() {
                 </div>`,
             }}
             autoplay={{ disableOnInteraction: false, waitForTransition: false }}
-            virtual
           >
             {imageList.map((image, index) => (
-              <SwiperSlide key={index} virtualIndex={index}>
-                <Image src={image} alt="image" width={756} height={528} />
+              <SwiperSlide key={index}>
+                <Image
+                  src={image}
+                  alt="image"
+                  fill
+                  sizes="(max-width: 600px) 100vw, 756px"
+                  className={carouselImage}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

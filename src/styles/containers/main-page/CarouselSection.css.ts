@@ -64,10 +64,29 @@ export const carousel = style({
 
 globalStyle(`.${wrapper} .swiper`, {
   borderRadius: 8,
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      borderRadius: 0,
+    },
+  },
+});
+
+globalStyle(`.${wrapper} .swiper-slide`, {
+  width: 756,
+  height: 528,
+  position: 'relative',
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      width: '100vw',
+      height: 284,
+    },
+  },
 });
 
 export const carouselImage = style({
-  borderRadius: 8,
+  objectFit: 'cover',
 });
 
 export const carouselIndexContainer = style({
@@ -83,6 +102,13 @@ export const carouselIndexContainer = style({
   fontSize: 14,
   color: color.basic[10],
   background: `rgba(0, 0, 0, 0.5)`,
+
+  '@media': {
+    'screen and (max-width: 600px)': {
+      bottom: 12,
+      right: 20,
+    },
+  },
 });
 
 export const listContainer = style({
