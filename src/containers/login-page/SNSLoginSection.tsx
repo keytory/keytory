@@ -7,10 +7,12 @@ import {
 } from '@styles/components/button/Button.css';
 import { wrap } from '@styles/containers/login-page/SNSLoginSection.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const SNSLoginSection = () => {
   return (
     <section className={wrap}>
+      {/* TODO: button -> Link 로 변경하기 */}
       <button className={kakaoButton}>
         <div className={logoContainer}>
           <Image
@@ -33,9 +35,9 @@ const SNSLoginSection = () => {
         </div>
         <div className={textContainer}>Google로 가입하기</div>
       </button>
-      <button className={emailButton}>
+      <Link href="/signup" className={emailButton}>
         <div className={textContainer}>이메일로 가입하기</div>
-      </button>
+      </Link>
     </section>
   );
 };
