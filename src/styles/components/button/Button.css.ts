@@ -2,7 +2,6 @@ import { color } from '@styles/color.css';
 import { style } from '@vanilla-extract/css';
 
 export const rectangleButton = style({
-  width: '100%',
   padding: '14px 24px',
   borderRadius: '12px',
   fontWeight: 'bold',
@@ -16,9 +15,19 @@ export const rectangleButton = style({
   position: 'relative',
 });
 
+export const primaryButton = style([
+  rectangleButton,
+  {
+    backgroundColor: color.primary[10],
+    color: color.primary[100],
+    border: `1px solid ${color.primary[70]}`,
+  },
+]);
+
 export const loginButton = style([
   rectangleButton,
   {
+    width: '100%',
     backgroundColor: color.primary[100],
     color: '#FFFFFF',
   },
@@ -27,6 +36,7 @@ export const loginButton = style([
 export const kakaoButton = style([
   rectangleButton,
   {
+    width: '100%',
     backgroundColor: '#FEE500',
   },
 ]);
@@ -34,6 +44,7 @@ export const kakaoButton = style([
 export const googleButton = style([
   rectangleButton,
   {
+    width: '100%',
     backgroundColor: '#FFFFFF',
     border: '1px solid #eee',
   },
@@ -42,6 +53,7 @@ export const googleButton = style([
 export const emailButton = style([
   rectangleButton,
   {
+    width: '100%',
     backgroundColor: color.basic[20],
     color: '#767676',
   },

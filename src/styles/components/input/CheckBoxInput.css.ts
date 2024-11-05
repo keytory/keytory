@@ -16,7 +16,6 @@ export const hiddenCheckboxStyles = style({
 const baseCheckmarkStyles = {
   width: '18px',
   height: '18px',
-  borderRadius: '50%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -29,6 +28,23 @@ export const customCheckmarkVariants = styleVariants({
   unchecked: {
     ...baseCheckmarkStyles,
     backgroundColor: 'transparent',
+    border: '1.2px solid #EFEFEF',
+    borderRadius: '50%',
+  },
+  checked: {
+    ...baseCheckmarkStyles,
+    backgroundColor: color.primary[100],
+    color: 'white',
+    fontSize: '10px',
+    borderRadius: '50%',
+    border: 'none',
+  },
+});
+
+export const customSquareCheckmarkerVariants = styleVariants({
+  unchecked: {
+    ...baseCheckmarkStyles,
+    backgroundColor: color.basic[20],
     border: '1.2px solid #EFEFEF',
   },
   checked: {
