@@ -40,22 +40,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: ReactNode;
-}>) {
-  return (
-    <html lang="ko">
-      <body className={pretendard.className}>
-        <ClientProvider>
-          <Banner />
-          <div className={wrapper}>
-            <Sidebar />
-            {children}
-          </div>
-        </ClientProvider>
-      </body>
-    </html>
-  );
-}
+}>) => (
+  <html lang="ko">
+    <body className={pretendard.className}>
+      <ClientProvider>
+        <Banner />
+        <div className={wrapper}>
+          <Sidebar />
+          {children}
+        </div>
+      </ClientProvider>
+    </body>
+  </html>
+);
+
+export default RootLayout;
