@@ -1,3 +1,4 @@
+import { color } from '@styles/color.css';
 import { style } from '@vanilla-extract/css';
 
 export const wrap = style({
@@ -11,4 +12,10 @@ export const wrap = style({
   justifyContent: 'center',
   alignItems: 'center',
   padding: '50px 20px',
+});
+
+export const linkStyle = style({
+  fontSize: '14px',
+  color: color.primary[100],
+  textDecoration: 'underline',
 });

@@ -1,4 +1,4 @@
-import { wrap } from '@styles/containers/login-page/index.css';
+import { linkStyle, wrap } from '@styles/containers/login-page/index.css';
 import Image from 'next/image';
 import { FC } from 'react';
 import Link from 'next/link';
@@ -18,7 +18,9 @@ const LoginPage: FC = () => {
         <EmailFormSection />
         <hr style={{ width: '100%' }} />
         <SNSLoginSection />
-        <Link href="#">비밀번호를 잊어버리셨나요?</Link>
+        <Link className={linkStyle} href="#">
+          비밀번호를 잊어버리셨나요?
+        </Link>
       </main>
     </>
   );

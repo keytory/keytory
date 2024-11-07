@@ -30,6 +30,7 @@ export const loginButton = style([
     width: '100%',
     backgroundColor: color.primary[100],
     color: '#FFFFFF',
+    fontSize: '14px',
   },
 ]);
 
@@ -38,6 +39,8 @@ export const kakaoButton = style([
   {
     width: '100%',
     backgroundColor: '#FEE500',
+    fontSize: '14px',
+    color: 'black',
   },
 ]);
 
@@ -47,6 +50,8 @@ export const googleButton = style([
     width: '100%',
     backgroundColor: '#FFFFFF',
     border: '1px solid #eee',
+    fontSize: '14px',
+    color: 'black',
   },
 ]);
 
@@ -56,6 +61,7 @@ export const emailButton = style([
     width: '100%',
     backgroundColor: color.basic[20],
     color: '#767676',
+    fontSize: '14px',
   },
 ]);
 
