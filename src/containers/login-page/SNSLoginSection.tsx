@@ -12,14 +12,13 @@ import Link from 'next/link';
 const SNSLoginSection = () => {
   return (
     <section className={wrap}>
-      {/* TODO: button -> Link 로 변경하기 */}
       <button className={kakaoButton}>
         <div className={logoContainer}>
           <Image
             src="/icons/kakao.svg"
             alt="Kakao 로고"
             width={30}
-            height={30}
+            height={28.15}
           />
         </div>
         <div className={textContainer}>카카오로 가입하기</div>
