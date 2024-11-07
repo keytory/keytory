@@ -16,5 +16,5 @@ export const formStyle = style({
   width: '100%',
   display: 'flex',
   gap: '48px',
-  flexDirection: 'column'
+  flexDirection: 'column',
 });

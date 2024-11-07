@@ -22,3 +22,21 @@ export const checkbox = style({
 export const textStyles = style({
   marginLeft: '8px',
 });
+
+export const toggleButton = style({
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '14px',
+  whiteSpace: 'nowrap',
+  gap: '8px',
+});
+
+export const downArrow = style({
+  transition: 'transform 0.3s ease',
+});
+
+export const expandedContent = style({
+  padding: '8px 0px 0px 0px',
+  color: '#555',
+});
