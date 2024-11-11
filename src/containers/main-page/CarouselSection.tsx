@@ -31,7 +31,7 @@ const imageList: string[] = [
 
 export default function CarouselSection() {
   const [swiperRef, setSwiperRef] = useState<SwiperClass | null>(null);
-  const [activeIndex, setActiveIndex] = useState<number>(1);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const onSwiper = (swiper: SwiperClass) => {
     setSwiperRef(swiper);
@@ -39,12 +39,12 @@ export default function CarouselSection() {
 
   const onSlideChange = () => {
     let index = swiperRef?.activeIndex;
-    if (!index || index === 6) index = 1;
+    if (!index || index === 5) index = 0;
     setActiveIndex(index);
   };
 
   const handleImageClick = (index: number) => {
-    swiperRef?.slideTo(index + 1);
+    swiperRef?.slideTo(index);
   };
 
   return (
@@ -84,9 +84,7 @@ export default function CarouselSection() {
           {imageList.map((image, index) => (
             <div
               key={index}
-              className={
-                activeIndex === index + 1 ? selectedListItem : listItem
-              }
+              className={activeIndex === index ? selectedListItem : listItem}
             >
               <Image
                 src={image}
