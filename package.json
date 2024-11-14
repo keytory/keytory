@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.23",
+    "@vanilla-extract/css": "^1.16.0",
     "axios": "^1.7.4",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
+    "swiper": "^11.1.14",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
