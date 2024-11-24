@@ -13,6 +13,7 @@ export const wrapper = style({
       width: '100%',
       background: '#ffffff',
       padding: '16px 0',
+      marginBottom: 0,
     },
   },
 });

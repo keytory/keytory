@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function HeroSection() {
   return (
-    <div className={wrapper}>
+    <section className={wrapper}>
       <p className={caption}>simulation</p>
       <h1 className={title}>키토리 탐방: 다양한 커스텀 키보드를 한눈에</h1>
       <p className={detail}>
@@ -21,6 +21,6 @@ export default function HeroSection() {
       <Link href="/keytory" className={link}>
         키토리 페이지로 이동
       </Link>
-    </div>
+    </section>
   );
 }

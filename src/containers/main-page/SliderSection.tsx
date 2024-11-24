@@ -56,7 +56,7 @@ export default function SliderSection() {
   };
 
   return (
-    <div className={wrapper}>
+    <section className={wrapper}>
       <h2 className={title}>Best Keyboard</h2>
       <div className={swiperContainer}>
         <button className={swiperPrevButton} onClick={handlePrevClick}></button>
@@ -95,7 +95,7 @@ export default function SliderSection() {
         </div>
         <button className={swiperNextButton} onClick={handleNextClick}></button>
       </div>
-    </div>
+    </section>
   );
 }
 
