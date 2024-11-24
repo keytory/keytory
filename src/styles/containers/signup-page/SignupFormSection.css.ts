@@ -5,7 +5,7 @@ export const wrap = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '48px',
-})
+});
 
 export const inputBox = style({
   display: 'flex',
@@ -13,6 +13,10 @@ export const inputBox = style({
   width: '100%',
   height: '40px',
   margin: '8px 0px',
+});
+
+globalStyle(`${inputBox} > input:disabled`, {
+  backgroundColor: color.basic[20],
 });
 
 globalStyle(`${inputBox} > input`, {
@@ -32,5 +36,19 @@ export const passwordBox = style({
 
 export const descriptionText = style({
   color: color.basic[20],
-  fontSize: '12px'
+  fontSize: '12px',
 });
+
+export const successText = style([
+  descriptionText,
+  {
+    color: color.success,
+  },
+]);
+
+export const errorText = style([
+  descriptionText,
+  {
+    color: color.error,
+  },
+]);

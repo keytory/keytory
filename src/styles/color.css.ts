@@ -24,4 +24,6 @@ export const color = {
     100: 'rgba(18, 18, 18, 1)',
     110: 'rgba(0, 0, 0, 1)',
   },
+  success: '#4CAF50',
+  error: '#F44336',
 };
