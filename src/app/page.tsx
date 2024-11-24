@@ -3,7 +3,7 @@ import CarouselSection from '../containers/main-page/CarouselSection';
 import HeroSection from '../containers/main-page/HeroSection';
 import SliderSection from '../containers/main-page/SliderSection';
 
-export default function Home() {
+const Home = () => {
   return (
     <main className={wrapper}>
       <CarouselSection />
@@ -11,4 +11,6 @@ export default function Home() {
       <SliderSection />
     </main>
   );
-}
+};
+
+export default Home;
